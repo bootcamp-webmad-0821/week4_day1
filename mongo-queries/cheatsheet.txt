@@ -1,0 +1,110 @@
+// basic queries
+
+{ year: '1994' }
+
+{ _id: ObjectId('5c6a9f45b975fde86574b6a7') }
+
+
+
+
+
+
+
+// Comparison operators
+
+{ year: { $eq: '1995' } }
+
+{ year: { $gt: '1995' } }
+
+{ year: { $gte: '1995' } }
+
+{ year: { $lt: '1995' } }
+
+{ year: { $lte: '1995' } }
+
+
+
+
+
+
+
+// Logic operators 
+
+{ year: { $ne: '1994' } }    // De año diferente al 94
+
+{ $or: [{ year: '1995' }, { year: '1997' }] }      // Del año 95 o del 97
+
+{ $or: [{ year: { $gte: 2000 } }, { genre: 'Fantasy' }] } // A partir del 2000 o de fantasía
+
+{ $and: [{ year: '1995' }, { rate: { $gt: '8' } }] }        // Del año 95 y con más de un 8
+
+{ $and: [{ year: { $gt: '1995' } }, { year: { $lt: '1999' } }] }       // Del año 96 al 98
+
+{ $nor: [{ year: '1995' }, { director: 'Christopher Nolan' }] }      // Ni del año 95 ni dirigida por C.N.
+
+
+
+
+
+
+
+// Array logic operators 
+
+{ genre: { $in: ["Drama", "Fantasy"] } }        // Cualquiera de drama o fantasía
+
+{ genre: { $nin: ["Drama", "Horror"] } }        // Ninguna de drama u horror
+
+{ genre: { $all: ["Drama", "Horror"] } }        // Todas con drama y horror
+
+{ grades: { $elemMatch: { grade: "A", score: { $gt: 15 } } } }      // Todas las notas de 'grade' A, o 'score' mayor de 15
+
+
+
+
+
+
+
+// Projections: specify fields from each document
+
+{ title: 1, _id: 0 }
+
+{ title: 1, year: 1 }
+
+
+
+
+
+
+
+// Sorting
+
+{ rate: 1 }
+
+{ rate: -1 }
+
+
+
+
+
+
+
+
+// Property checkers
+
+{ name: { $exists: true } }                     // Registros con la propiedad 'name'
+
+{ year: { $type: 'double' } }                   // Registros con el tipo 'double' en 'year'
+
+
+
+
+
+
+
+
+
+// Ejemplos adicionales de queries (aplicables a la colección Restaurants)
+
+{ "address.street": "Southern Boulevard" }      // Un valor 'Southern Boulevard' en la propiedad 'street' del objeto 'address'
+
+{ "grades.score": { $gt: 20 } }                 // Un valor mayor de 20 en la propiedad 'score' del array de objetos 'grades'

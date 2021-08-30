@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // Object destructuring
+
+        let person = {
+            name: 'Ironhacker',
+            age: 25,
+            favoriteMusic: 'Metal',
+            address: {
+                street: 'Super Cool St',
+                number: 123,
+                city: 'Miami',
+            }
+        }
+
+        const { name, age, favoriteMusic, favouriteFood = 'Unkonow food', address } = person
+
+        console.log(`Hello, ${name}.`);
+        console.log(`You are ${age} years old.`);
+        console.log(`Your favorite music is ${favoriteMusic}.`);
+        console.log(`Your favorite food is ${favouriteFood}.`);
+        console.log(`Your street is ${address.street}.`);
+
+
+
+
+
+        // Array destructuring
+
+        const campuses = ['madrid', 'barcelona', 'miami']
+
+        const [firstCampus, secondCampus, thirdCampus] = campuses;
+
+        console.log(thirdCampus)
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
